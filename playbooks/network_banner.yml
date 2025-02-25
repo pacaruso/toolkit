@@ -4,14 +4,6 @@
   gather_facts: false
 
   tasks:
-    - name: Verifica branch dal webhook
-      debug:
-        msg: "Trigger ricevuto per {{ lookup('env', 'WEBHOOK_PAYLOAD') }}"
-
-    - name: Blocca se non è il branch corretto
-      fail:
-        msg: "Il trigger non è per il branch main"
-      when: lookup('env', 'WEBHOOK_PAYLOAD') | from_json | json_query('ref') != 'refs/heads/netops'
 
     - name: Load banner onto network device
       vars:
