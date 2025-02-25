@@ -15,11 +15,12 @@
     <tbody>
         <tr>
             <td>{{ hostvars[network_switch].ansible_network_resources.bgp_global['as_number']|default("Not Configured") }}</td>
-            {% if hostvars[network_switch].ansible_network_resources.bgp_global.bgp['router_id']['address'] %}
-            <td>{{ hostvars[network_switch].ansible_network_resources.bgp_global.bgp['router_id']['address']|default("Not Configured") }}</td>
-            {% else %}
+            {% if hostvars[network_switch]['ansible_network_os'] == 'eos' %}
             <td>{{ hostvars[network_switch].ansible_network_resources.bgp_global.bgp['router_id']|default("Not Configured") }}</td>
+            {% else %}
+            <td>{{ hostvars[network_switch].ansible_network_resources.bgp_global.bgp['router_id']['address']|default("Not Configured") }}</td>
             {% endif %}
+
         </tr>
     </tbody>
 </table>
