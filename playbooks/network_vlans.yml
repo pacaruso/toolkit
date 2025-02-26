@@ -1,6 +1,6 @@
 ---
 - name: Configure network VLANs
-  hosts: all
+  hosts: arista
   gather_facts: false
   vars:
     - vlan_state: "{{ net_vlan_state | default('merged') }}"
