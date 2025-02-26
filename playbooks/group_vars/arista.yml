@@ -11,3 +11,5 @@ net_vlan_config:
       vlan_id: 50
     - name: DMZ-TEST
       vlan_id: 1050
+    - name: DMZ-TEST-2
+      vlan_id: 1051
